@@ -1,4 +1,5 @@
 PODS:
+  - Analytics (3.6.10)
   - ARSLineProgress (3.1.0)
   - CropViewController (2.4.0)
   - Firebase/Auth (5.19.0):
@@ -78,6 +79,8 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - nudge (1.0.9):
+    - Analytics (~> 3.6.10)
   - PhoneNumberKit (2.6.0):
     - PhoneNumberKit/PhoneNumberKitCore (= 2.6.0)
     - PhoneNumberKit/UIKit (= 2.6.0)
@@ -97,11 +100,13 @@ DEPENDENCIES:
   - Firebase/Storage
   - FLAnimatedImage
   - FTPopOverMenu_Swift
+  - nudge
   - PhoneNumberKit
   - SDWebImage (from `https://github.com/rs/SDWebImage`, branch `5.x`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Analytics
     - ARSLineProgress
     - CropViewController
     - Firebase
@@ -120,6 +125,8 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PhoneNumberKit
+  https://github.com/getlarky/nudge-specs-zip:
+    - nudge
 
 EXTERNAL SOURCES:
   SDWebImage:
@@ -132,6 +139,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/rs/SDWebImage
 
 SPEC CHECKSUMS:
+  Analytics: 63744ad4afa65c3bcdcdb7a94b62515bde5b3900
   ARSLineProgress: 60778657c69491796c3faf5b834c72924c405833
   CropViewController: a090820b15fc3da68e694d7c192a4708c576828b
   Firebase: c60d49e9c2630875a96207d15e2affb8364996d1
@@ -149,9 +157,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  nudge: 573f81c90e290c649c63a8c5fd1652e690e430ff
   PhoneNumberKit: 167ee1f0bbb6efce7c62559e620eae745595532f
   SDWebImage: 705a9329bd705c47a8e2755dae939dd8cfc8e1b3
 
-PODFILE CHECKSUM: d47def5fa63f48476565f4e48f9ab0e473a3bbfb
+PODFILE CHECKSUM: 07343e74c98d9fc2bb9e39911dc9dbad61cbd60d
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.6.0

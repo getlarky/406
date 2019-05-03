@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import nudge
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     ThemeManager.applyTheme(theme: ThemeManager.currentTheme())
     FirebaseApp.configure()
+    try? Nudge.registerForPushNotifications()
     Database.database().isPersistenceEnabled = true
     userDefaults.configureInitialLaunch()
     
@@ -59,4 +60,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillTerminate(_ application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Nudge.onRegisteredForNotifications(deviceToken: deviceToken)
+    }
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        Nudge.onFailedToRegisterForNotifications(error:error)
+    }
+    func application(
+        _ application: UIApplication,
+        didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+        fetchCompletionHandler completionHandler:
+        @escaping (UIBackgroundFetchResult) -> Void
+        ) {
+        Nudge.receivedPush(notificationPayload:userInfo, application: application, completionHandler: completionHandler)
+    }
 }

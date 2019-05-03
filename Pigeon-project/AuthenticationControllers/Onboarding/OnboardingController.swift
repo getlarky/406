@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import nudge
 
 class OnboardingController: UIViewController {
 
@@ -14,6 +15,7 @@ class OnboardingController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    var nudge = Nudge(apiKey: "")
     
     view.backgroundColor = ThemeManager.currentTheme().generalBackgroundColor
     view.addSubview(onboardingContainerView)
